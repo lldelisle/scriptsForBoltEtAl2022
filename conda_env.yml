@@ -1,0 +1,12 @@
+name: bolt2022
+channels:
+    - bioconda
+    - conda-forge
+dependencies:
+    - python =3.7
+    - numpy <1.20
+    - hicexplorer =3.6
+    - homer =4.11
+    - pip
+    - pip:
+        - "git+https://github.com/lldelisle/pyGenomeTracks.git@Bolt2022"
