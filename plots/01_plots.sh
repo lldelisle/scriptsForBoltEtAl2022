@@ -726,8 +726,8 @@ pgt --tracks ${ini_file} \
   -o ${ini_file/.ini/.pdf} --region chr2:74638000-74783000 \
   --dpi 300 --fontSize 12 --trackLabelFraction 0.2
 
-# Figure 6SA
-ini_file=${plottingDirectory}/fig6sa.ini
+# Figure 6S
+ini_file=${plottingDirectory}/fig6s.ini
 echo "" > ${ini_file}
 for tis in PFL DFL; do 
     for geno in wt 542; do
@@ -768,69 +768,4 @@ labels = true
 pgt --tracks ${ini_file} \
   -o ${ini_file/.ini/.pdf} --region chr2:73950000-75655000 \
   --dpi 300 --fontSize 12 --trackLabelFraction 0.1
-
-
-# Figure 6SB
-ini_file=${plottingDirectory}/fig6sb.ini
-echo "" > ${ini_file}
-for tis in PFL DFL; do
-    ac=$(ls ${pathWithChIP}/*_wt_E12_${tis}_H3K27ac.bw)
-    me3=$(ls ${pathWithChIP}/*_wt_E12_${tis}_H3K27me3.bw)
-    for geno in wt 542; do
-        echo "[hic matrix]
-file = ${pathWithCool}/${geno}_E12.5_${tis}_CHIC_542mapping_5kb.cool 
-title = ${geno} ${tis} 5kb 542_mapping
-depth = 1300000
-show_masked_bins = false
-colormap = YlGnBu
-transform = no
-min_value = 0.00
-max_value = 0.01
-
-[spacer]
-" >> ${ini_file}
-    done
-    echo "[ERC wt ${tis} H3K27ac]
-file = ${ac}
-title = ERC ${tis} ac
-height = 3
-color = black
-min_value = 0
-max_value = 400
-
-[spacer]
-
-[Becarri wt ${tis} H3K27me3]
-file = ${me3}
-title = Becarri ${tis} me3
-height = 3
-color = grey
-min_value = 0
-max_value = 200
-
-[spacer]
-" >> ${ini_file}
-done
-echo "[annot]
-file = ${gitHubDirectory}/annotations/HoxD_Elements_542_colored.bed
-title = 542 HoxD elements
-display = collapsed
-color = bed_rgb
-line_width = 0
-labels = false
-
-[spacer]
-
-[features labels]
-file = ${gitHubDirectory}/annotations/HoxD_Elements_542_start.bed
-display = collapsed
-color = none
-line_width = 0
-labels = true
-" >> ${ini_file}
-
-pgt --tracks ${ini_file} \
-  -o ${ini_file/.ini/.pdf} --region chr2:74566933-74838211 \
-  --dpi 300 --fontSize 12 --trackLabelFraction 0.1
-
 
