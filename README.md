@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/438972791.svg)](https://zenodo.org/badge/latestdoi/438972791)
+
 # scriptsForBoltEtAl2022
 
 All scripts necessary to build figures from raw data in Bolt et al. 2022.
