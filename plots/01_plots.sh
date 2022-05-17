@@ -7,6 +7,7 @@ pathWithATAC="/scratch/ldelisle/Bolt2022/ATAC/"
 pathWithChIP="/scratch/ldelisle/Bolt2022/ChIP/"
 plottingDirectory="/scratch/ldelisle/Bolt2022/plots/"
 mkdir -p $plottingDirectory
+cd $plottingDirectory
 
 # Figure 1A:
 ini_file=${plottingDirectory}/fig1a.ini
@@ -119,7 +120,6 @@ file = ${pathWithChIP}/SRR3498934_wt_E11_FL_HOXA13.bw
 title = HOXA13 Sheth
 color = #8b8b8bff
 type = line
-line_width = 1
 overlay_previous = share-y
 
 [summit]
@@ -146,7 +146,6 @@ file = ${pathWithChIP}/SRR3498935_wt_E11_FL_HOXD13.bw
 title = HOXD13 Sheth
 color = #8b8b8bff
 type = line
-line_width = 1
 overlay_previous = share-y
 
 [summit]
